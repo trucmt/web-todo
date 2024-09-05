@@ -1,0 +1,18 @@
+{
+    // Sử dụng IntelliSense để tìm hiểu về các thuộc tính có thể.
+    // Di chuột để xem mô tả của các thuộc tính hiện có.
+    // Để biết thêm thông tin, hãy truy cập: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Chạy ứng dụng Go",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/cmd/main.go",
+            "env": {},
+            "args": [],
+            "showLog": true
+        }
+    ]
+}
