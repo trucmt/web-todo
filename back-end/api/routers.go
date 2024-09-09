@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/trucmt/web-todo/handlers"
+	"github.com/trucmt/web-todo/back-end/handlers"
 )
 
 func SetupRoutes(app *fiber.App) {

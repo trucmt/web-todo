@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/trucmt/web-todo/models"
+	"github.com/trucmt/web-todo/back-end/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/trucmt/web-todo/db"
-	"github.com/trucmt/web-todo/handlers"
+	"github.com/trucmt/web-todo/back-end/db"
+	"github.com/trucmt/web-todo/back-end/handlers"
 )
 
 func main() {
