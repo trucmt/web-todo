@@ -2,7 +2,8 @@ package handlers
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/trucmt/web-todo/models"
+	"github.com/trucmt/web-todo/back-end/models"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 var todos []models.Todo
@@ -12,7 +13,10 @@ func GetAllTodos(c *fiber.Ctx) error {
 }
 
 func GetTodo(c *fiber.Ctx) error {
-	id := c.Params("id")
+	id, err := primitive.ObjectIDFromHex(c.Params("id"))
+	if err != nil {
+		return c.SendStatus(fiber.StatusBadRequest)
+	}
 	for _, todo := range todos {
 		if todo.ID == id {
 			return c.JSON(todo)
@@ -33,8 +37,8 @@ func CreateTodo(c *fiber.Ctx) error {
 // Khởi tạo dữ liệu mẫu
 func InitTodos() {
 	todos = []models.Todo{
-		{ID: "1", Title: "Todo 1", Body: "Body 1", Completed: false},
-		{ID: "2", Title: "Todo 2", Body: "Body 2", Completed: false},
-		{ID: "3", Title: "Todo 3", Body: "Body 3", Completed: false},
+		{ID: primitive.NewObjectID(), Title: "Todo 1", Description: "Body 1", Completed: false},
+		{ID: primitive.NewObjectID(), Title: "Todo 2", Description: "Body 2", Completed: false},
+		{ID: primitive.NewObjectID(), Title: "Todo 3", Description: "Body 3", Completed: false},
 	}
 }
