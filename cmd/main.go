@@ -4,15 +4,18 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/trucmt/web-todo/api"
+	"github.com/trucmt/web-todo/db"
 	"github.com/trucmt/web-todo/handlers"
 )
 
 func main() {
+	db.ConnectDB()
+
 	app := fiber.New()
 
-	handlers.InitTodos()
-	api.SetupRoutes(app)
+	app.Get("/todos", handlers.GetAllTodos)
+	app.Post("/todos", handlers.CreateTodo)
+	// Thêm các route khác
 
 	log.Fatal(app.Listen(":4000"))
 }
